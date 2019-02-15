@@ -16,4 +16,21 @@ class FitnessClassesController < ApplicationController
       redirect to '/login'
     end
   end
+
+  post '/fitness_classes' do
+    if params[:name] == "" ||
+      params[:date] == "" ||
+      params[:time] == "" ||
+      params[:location] == "" ||
+      params[:instructor] == ""
+      redirect to "/fitness_classes/new"
+    else
+      @fitness_class = current_user.fitness_classes.create(name: params[:name],
+      date: params[:date],
+      time: params[:time],
+      location: params[:location],
+      instructor: params[:instructor])
+      redirect to "/fitness_classes/#{@fitness_class.id}"
+    end
+  end
 end
