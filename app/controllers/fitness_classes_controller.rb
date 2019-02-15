@@ -33,4 +33,17 @@ class FitnessClassesController < ApplicationController
       redirect to "/fitness_classes/#{@fitness_class.id}"
     end
   end
+
+  get '/fitness_classes/:id' do
+    if logged_in?
+      @fitness_class = FitnessClass.find_by_id(params[:id])
+      if @fitness_class.user_id == current_user.id
+        erb :'/fitness_classes/show'
+      else
+        redirect to "/fitness_classes"
+      end
+    else
+      redirect to '/login'
+    end
+  end
 end
