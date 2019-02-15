@@ -3,3 +3,28 @@ Welcome, <%= current_user.name %>
 <br></br>
 
 <h2>Check out all your classes:</h2>
+
+<% @fitness_classes.each do |fit_class| %>
+  <p></p>
+
+      Class Name:<%= fit_class.name %>
+
+      <br></br>
+
+      Date:<%= fit_class.date %>
+
+      <br></br>
+
+      Time:<%= fit_class.time.strftime("%l:%M %p") %>
+
+      <br></br>
+
+      Location:<%= fit_class.location %>
+
+      <br></br>
+
+      Instructor:<%= fit_class.instructor %>
+
+      <br></br>
+
+<% end %>
