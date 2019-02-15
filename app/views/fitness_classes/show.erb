@@ -5,3 +5,7 @@ Location:  <%= @fitness_class.location %>
 Instructor:  <%= @fitness_class.instructor %>
 
 <br></br>
+
+<form method="POST" action="/fitness_classes/<%= @fitness_class.id %>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+</form>
