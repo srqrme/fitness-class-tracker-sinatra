@@ -4,10 +4,15 @@ Welcome to my Sinatra Portfolio Project! Since I don't have a traditional gym me
 
 ## Installation
 
-To use this app:
+To install this app:
 
 1. Clone the repository
 2. Run rake db:migrate
-3. Run shotgun
+
+## Usage
+
+To use this app:
+
+1. Run shotgun
 
 Everything should be set up.
