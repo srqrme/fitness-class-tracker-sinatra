@@ -1,5 +1,17 @@
-<p><h2>Edit your class</h2></p>
+<p><h2>Edit class details</h2></p>
 
 <form action="/fitness_classes/<%= @fitness_class.id %>" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
+
+  <p>Class Name:    <%= @fitness_class.name %></p>
+
+  <p>Date:    <input type="date" name="date" value="<%= @fitness_class.date %>"></p>
+
+  <p>Time:    <input type="time" name="time" value="<%= @fitness_class.time %>"></p>
+
+  <p>Location: <input type="text" name="location" value="<%= @fitness_class.time %>"></p>
+
+  <p>Instructor:    <input type="text" name="instructor" value="<%= @fitness_class.instructor %>"></p>
+
 
 </form>
