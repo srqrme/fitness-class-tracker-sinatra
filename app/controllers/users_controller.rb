@@ -18,4 +18,11 @@ class UsersController < ApplicationController
     end
   end
 
+  get '/login' do
+    if logged_in?
+      redirect to '/fitness_classes'
+    else
+      erb :'users/login'
+    end
+  end
 end
