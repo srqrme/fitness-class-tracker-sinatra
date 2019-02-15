@@ -1,10 +1,8 @@
-Name:  <%= @fitness_class.name %>
-Date:  <%= @fitness_class.date %>
-Time:  <%= @fitness_class.time.strftime("%l:%M %p") %>
-Location:  <%= @fitness_class.location %>
-Instructor:  <%= @fitness_class.instructor %>
-
-<br></br>
+<p>Name:  <%= @fitness_class.name %></p>
+<p>Date:  <%= @fitness_class.date %></p>
+<p>Time:  <%= @fitness_class.time.strftime("%l:%M %p") %></p>
+<p>Location:  <%= @fitness_class.location %></p>
+<p>Instructor:  <%= @fitness_class.instructor %></p>
 
 <form method="POST" action="/fitness_classes/<%= @fitness_class.id %>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
