@@ -9,4 +9,11 @@ class FitnessClassesController < ApplicationController
     end
   end
 
+  get '/fitness_classes/new' do
+    if logged_in?
+      erb :'fitness_classes/new'
+    else
+      redirect to '/login'
+    end
+  end
 end
