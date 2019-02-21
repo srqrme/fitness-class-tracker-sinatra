@@ -1,5 +1,5 @@
 <p>Name:  <%= @fitness_class.name %></p>
-<p>Date:  <%= @fitness_class.date %></p>
+<p>Date:  <%= @fitness_class.date.strftime("%m-%d-%Y") %></p>
 <p>Time:  <%= @fitness_class.time.strftime("%l:%M %p") %></p>
 <p>Location:  <%= @fitness_class.location %></p>
 <p>Instructor:  <%= @fitness_class.instructor %></p>
