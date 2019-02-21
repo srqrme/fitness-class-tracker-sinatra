@@ -9,9 +9,6 @@ Welcome, <%= current_user.name %>
   <div class="boxed" align="center">
 
   <p></p>
-      Class Number:  <%= fit_class.id %>
-
-      <br></br>
 
       Class Name:  <%= fit_class.name %>
 
@@ -30,6 +27,10 @@ Welcome, <%= current_user.name %>
       <br></br>
 
       Instructor:  <%= fit_class.instructor %>
+
+      <br></br>
+
+      <a href="/fitness_classes/<%= fit_class.id %>/edit">Edit this class</a>
 
       <br></br>
 
