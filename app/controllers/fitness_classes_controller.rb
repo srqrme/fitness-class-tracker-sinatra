@@ -78,6 +78,17 @@ class FitnessClassesController < ApplicationController
     end
   end
 
+  get '/search' do
+    @fitness_classes = FitnessClass.all
+    if params[:search]
+      @fitness_classes = FitnessClass.search(params[:search])
+    else
+      @fitness_classes = FitnessClass.all
+    end
+    erb :'fitness_classes/search'
+  end
+
+
   delete '/fitness_classes/:id/delete' do
     if logged_in?
       @fitness_class = FitnessClass.find_by_id(params[:id])
