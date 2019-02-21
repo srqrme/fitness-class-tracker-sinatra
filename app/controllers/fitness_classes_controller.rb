@@ -3,7 +3,7 @@ class FitnessClassesController < ApplicationController
   get '/fitness_classes' do
     if logged_in?
       @fitness_classes = current_user.fitness_classes.all
-      erb :'fitness_classes/classes'
+      erb :'fitness_classes/index'
     else
       redirect to '/login'
     end
@@ -30,6 +30,7 @@ class FitnessClassesController < ApplicationController
       time: params[:time],
       location: params[:location],
       instructor: params[:instructor])
+      @fitness_class.save
       redirect to "/fitness_classes/#{@fitness_class.id}"
     end
   end
@@ -79,15 +80,24 @@ class FitnessClassesController < ApplicationController
   end
 
   get '/search' do
-    @fitness_classes = FitnessClass.all
-    if params[:search]
-      @fitness_classes = FitnessClass.search(params[:search])
-    else
-      @fitness_classes = FitnessClass.all
+    if logged_in?
+      @fitness_classes = current_user.fitness_classes.all
+      if params[:search]
+        @fitness_classes = current_user.fitness_classes.all.search(params[:search])
+      else
+        @fitness_classes = current_user.fitness_classes.all
+      end
     end
     erb :'fitness_classes/search'
   end
 
+  post '/search' do
+    if params[:search] == ""
+      redirect to "/search"
+    else
+      redirect to "/fitness_classes/#{params[:search]}"
+    end
+  end
 
   delete '/fitness_classes/:id/delete' do
     if logged_in?
