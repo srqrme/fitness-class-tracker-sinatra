@@ -79,26 +79,6 @@ class FitnessClassesController < ApplicationController
     end
   end
 
-  get '/search' do
-    if logged_in?
-      @fitness_classes = current_user.fitness_classes.all
-      if params[:search]
-        @fitness_classes = current_user.fitness_classes.all.search(params[:search])
-      else
-        @fitness_classes = current_user.fitness_classes.all
-      end
-    end
-    erb :'fitness_classes/search'
-  end
-
-  post '/search' do
-    if params[:search] == ""
-      redirect to "/search"
-    else
-      redirect to "/fitness_classes/#{params[:search]}"
-    end
-  end
-
   delete '/fitness_classes/:id/delete' do
     if logged_in?
       @fitness_class = FitnessClass.find_by_id(params[:id])
