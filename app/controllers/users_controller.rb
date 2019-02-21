@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     end
   end
 
+  # sign up action
   post '/signup' do
     if params[:name] == "" || params[:email] == "" || params[:username] == "" || params[:password] == ""
       redirect to "/signup"
@@ -26,8 +27,11 @@ class UsersController < ApplicationController
     end
   end
 
+  # login action
   post '/login' do
     @user = User.find_by(:username => params[:username])
+
+    #ensures the User exists and User is authenticated.
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect to '/fitness_classes'

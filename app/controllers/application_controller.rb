@@ -9,6 +9,7 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "fitness_class_secret"
   end
 
+# Route to Welcome page
   get "/" do
     if logged_in?
       redirect to '/fitness_classes'
@@ -19,10 +20,12 @@ class ApplicationController < Sinatra::Base
 
   helpers do
 
+    # returns true or false based on the presence of a session[:user_id]
     def logged_in?
       !!current_user
     end
 
+    # returns the instance of the logged in user, based on the session[:user_id]
     def current_user
       @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
     end
