@@ -69,8 +69,7 @@ class FitnessClassesController < ApplicationController
         @fitness_class = FitnessClass.find_by_id(params[:id])
         if @fitness_class.user_id = current_user.id
           @fitness_class.update(date: params["date"], time: params["time"], location: params["location"], instructor: params["instructor"])
-          redirect to "/fitness_classes/#{@fitness_class.id}"
-        else
+          @fitness_class.save
           redirect to "/fitness_classes"
         end
       end
