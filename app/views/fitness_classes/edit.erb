@@ -5,11 +5,11 @@
 
   <p>Class Name:    <%= @fitness_class.name %></p>
 
-  <p>Date:    <input type="date" name="date" value="<%= @fitness_class.date %>"></p>
+  <p>Date:    <input type="date" name="date" value="<%= @fitness_class.date.strftime("%m-%d-%Y") %>"></p>
 
-  <p>Time:    <input type="time" name="time" value="<%= @fitness_class.time %>"></p>
+  <p>Time:    <input type="time" name="time" value="<%= @fitness_class.time.strftime("%l:%M %p") %>"></p>
 
-  <p>Location: <input type="text" name="location" value="<%= @fitness_class.time %>"></p>
+  <p>Location: <input type="text" name="location" value="<%= @fitness_class.location %>"></p>
 
   <p>Instructor:    <input type="text" name="instructor" value="<%= @fitness_class.instructor %>"></p>
 
